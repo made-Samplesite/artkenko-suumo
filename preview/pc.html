@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta name="robots" content="noindex, nofollow" /><meta charset="UTF-8" />
+
+<title>確認用（PC）</title>
+<style>
+body { margin: 0; background: #e9e9e9; font-family: sans-serif; }
+.pv-bar { padding: 8px 12px; background: #444; color: #fff; font-size: 12px; text-align: center; }
+/* SUUMO の実寸：PC は #wrapper 954px の中に本文 950px、スマホは画面幅いっぱい */
+.pv-page { width: 954px; margin: 0 auto; padding: 0 2px 40px; background: #fff; }
+</style>
+</head><body>
+<div class="pv-bar">確認用プレビュー（実際は SUUMO の企業ページ内に表示されます）</div>
+<div class="pv-page">
+<!--
+  アート建工様 SUUMO フリーページ（PC用）「体験型住宅展示場アートラボで、性能を体感しませんか？」
+  SUUMO の企業ページ（PC）の「contents Start」の位置に入る部分。外枠 #includeContent ごと入稿する。
+  ../0001/ は書き出し時に置き換わる（入稿用：/house/hj/report/kigyo_spc/front/<企業コード>/0001/ ／プレビュー用：../0001/）
+  MV（波かっこ付き）は src/parts/mv.svg（tools/make-mv.py）、MAP は src/parts/map.svg（tools/make-map.py）に置き換わる
+  SUUMO 内のリンク先は tools/build.mjs の LINKS で一括管理（EVENT／MODEL／YONAGO などの波かっこ）
+  動きは js/main.js（jQuery を使わない素の JavaScript）
+  「要確認」タグの箇所は、アート建工様に確認して差し替える（README.md の未確定一覧）
+-->
+<div id="includeContent">
+<link rel="stylesheet" type="text/css" href="../0001/css/main.css" media="screen, tv" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<div class="ak">
+
+  <!-- 1. トップビジュアル：家の中身が順に落ちてきて組み上がる（アキュラホーム様と同じ動きの考え方。絵は自作の SVG） -->
+  <div class="ak-mv" data-ak-mv>
+    <div class="ak-mv__cold" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ak-mv__inr">
+      <div class="ak-mv__copy">
+        <p class="ak-mv__label ak-en">ArtLab<span>体験型住宅展示場</span></p>
+        <p class="ak-mv__title">その性能、<br /><span class="ak-mv__title-em">体感</span>してから<br />決めませんか？</p>
+        <p class="ak-mv__lead">完成したら見えなくなる、<br />家の「中身」を見て・触れて・比べる。<br />山陰の冬（0〜2℃）を想定した部屋で、<br />断熱の違いを肌で確かめられます。</p>
+        <p class="ak-mv__gift"><span class="ak-mv__gift-label">来場予約特典</span><span class="ak-mv__gift-body">QUOカード<strong>最大<b class="ak-en">10,000</b>円分</strong></span></p>
+        <div class="ak-mv__cta">
+          <a class="ak-btn ak-btn--main" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/event/">アートラボ体験会を予約する</a>
+          <a class="ak-link" href="#ak-place" data-ak-jump>4つの会場から選ぶ</a>
+        </div>
+      </div>
+      <div class="ak-mv__figure">
+<svg class="ak-mv__svg" viewBox="0 0 660 560" role="img" aria-label="基礎・構造・断熱材・窓・暮らし・家族の順に家が組み上がっていくイラスト" xmlns="http://www.w3.org/2000/svg">
+<g class="ak-mv__step" data-step="1"><g class="ak-mv__drop"><polygon class="ak-c-l" points="76.8,286.0 388.9,466.2 388.9,496.8 76.8,316.6" /><polygon class="ak-c-r" points="642.1,320.0 388.9,466.2 388.9,496.8 642.1,350.6" /><polygon class="ak-c-t" points="330.0,139.8 642.1,320.0 388.9,466.2 76.8,286.0" /><polygon class="ak-none" points="76.8,316.6 388.9,496.8" /></g></g>
+<g class="ak-mv__step" data-step="2"><g class="ak-mv__drop"><polygon class="ak-f-l" points="94.4,279.9 388.9,449.9 388.9,456.0 94.4,286.0" /><polygon class="ak-f-r" points="624.4,313.9 388.9,449.9 388.9,456.0 624.4,320.0" /><polygon class="ak-f-t" points="330.0,143.9 624.4,313.9 388.9,449.9 94.4,279.9" /><line class="ak-joint" x1="359.4" y1="160.9" x2="123.9" y2="296.9" /><line class="ak-joint" x1="388.9" y1="177.9" x2="153.3" y2="313.9" /><line class="ak-joint" x1="418.3" y1="194.9" x2="182.8" y2="330.9" /><line class="ak-joint" x1="447.8" y1="211.9" x2="212.2" y2="347.9" /><line class="ak-joint" x1="477.2" y1="228.9" x2="241.7" y2="364.9" /><line class="ak-joint" x1="506.7" y1="245.9" x2="271.1" y2="381.9" /><line class="ak-joint" x1="536.1" y1="262.9" x2="300.6" y2="398.9" /><line class="ak-joint" x1="565.6" y1="279.9" x2="330.0" y2="415.9" /><line class="ak-joint" x1="595.0" y1="296.9" x2="359.4" y2="432.9" /><polygon class="ak-w-l" points="316.8,-12.3 331.5,-3.8 331.5,160.0 316.8,151.5" /><polygon class="ak-w-r" points="344.7,-11.5 331.5,-3.8 331.5,160.0 344.7,152.4" /><polygon class="ak-w-t" points="330.0,-20.0 344.7,-11.5 331.5,-3.8 316.8,-12.3" /><polygon class="ak-w-l" points="240.2,31.8 254.9,40.3 254.9,204.2 240.2,195.7" /><polygon class="ak-w-r" points="268.2,32.7 254.9,40.3 254.9,204.2 268.2,196.6" /><polygon class="ak-w-t" points="253.4,24.2 268.2,32.7 254.9,40.3 240.2,31.8" /><polygon class="ak-w-l" points="160.7,77.8 175.4,86.2 175.4,250.1 160.7,241.6" /><polygon class="ak-w-r" points="188.7,78.6 175.4,86.2 175.4,250.1 188.7,242.5" /><polygon class="ak-w-t" points="173.9,70.1 188.7,78.6 175.4,86.2 160.7,77.8" /><polygon class="ak-w-l" points="315.3,-11.5 328.5,-3.8 328.5,160.0 315.3,152.4" /><polygon class="ak-w-r" points="343.2,-12.3 328.5,-3.8 328.5,160.0 343.2,151.5" /><polygon class="ak-w-t" points="330.0,-20.0 343.2,-12.3 328.5,-3.8 315.3,-11.5" /><polygon class="ak-w-l" points="412.4,44.6 425.7,52.2 425.7,216.1 412.4,208.5" /><polygon class="ak-w-r" points="440.4,43.8 425.7,52.2 425.7,216.1 440.4,207.6" /><polygon class="ak-w-t" points="427.2,36.1 440.4,43.8 425.7,52.2 412.4,44.6" /><polygon class="ak-w-l" points="509.6,100.7 522.9,108.4 522.9,272.2 509.6,264.6" /><polygon class="ak-w-r" points="537.6,99.9 522.9,108.4 522.9,272.2 537.6,263.7" /><polygon class="ak-w-t" points="524.3,92.2 537.6,99.9 522.9,108.4 509.6,100.7" /><polygon class="ak-w-l" points="596.5,150.9 609.7,158.5 609.7,322.4 596.5,314.7" /><polygon class="ak-w-r" points="624.4,150.0 609.7,158.5 609.7,322.4 624.4,313.9" /><polygon class="ak-w-t" points="611.2,142.4 624.4,150.0 609.7,158.5 596.5,150.9" /><polygon class="ak-w-l" points="94.4,100.7 109.2,109.2 109.2,124.5 94.4,116.0" /><polygon class="ak-w-r" points="344.7,-26.8 109.2,109.2 109.2,124.5 344.7,-11.5" /><polygon class="ak-w-t" points="330.0,-35.3 344.7,-26.8 109.2,109.2 94.4,100.7" /><polygon class="ak-w-l" points="315.3,-26.8 609.7,143.2 609.7,158.5 315.3,-11.5" /><polygon class="ak-w-r" points="624.4,134.7 609.7,143.2 609.7,158.5 624.4,150.0" /><polygon class="ak-w-t" points="330.0,-35.3 624.4,134.7 609.7,143.2 315.3,-26.8" /><polygon class="ak-w-l" points="94.4,116.0 109.2,124.5 109.2,288.4 94.4,279.9" /><polygon class="ak-w-r" points="122.4,116.9 109.2,124.5 109.2,288.4 122.4,280.7" /><polygon class="ak-w-t" points="107.7,108.4 122.4,116.9 109.2,124.5 94.4,116.0" /></g></g>
+<g class="ak-mv__step" data-step="3"><g class="ak-mv__drop"><polygon class="ak-i" points="331.5,-3.8 268.2,32.7 268.2,196.6 331.5,160.0" /><polygon class="ak-iline" points="331.5,127.3 268.2,163.8" /><polygon class="ak-iline" points="331.5,94.5 268.2,131.0" /><polygon class="ak-iline" points="331.5,61.7 268.2,98.3" /><polygon class="ak-iline" points="331.5,28.9 268.2,65.5" /><polygon class="ak-i" points="254.9,40.3 188.7,78.6 188.7,242.5 254.9,204.2" /><polygon class="ak-iline" points="254.9,171.5 188.7,209.7" /><polygon class="ak-iline" points="254.9,138.7 188.7,176.9" /><polygon class="ak-iline" points="254.9,105.9 188.7,144.2" /><polygon class="ak-iline" points="254.9,73.1 188.7,111.4" /><polygon class="ak-i" points="175.4,86.2 122.4,116.9 122.4,280.7 175.4,250.1" /><polygon class="ak-iline" points="175.4,217.4 122.4,248.0" /><polygon class="ak-iline" points="175.4,184.6 122.4,215.2" /><polygon class="ak-iline" points="175.4,151.8 122.4,182.4" /><polygon class="ak-iline" points="175.4,119.0 122.4,149.6" /><polygon class="ak-i" points="328.5,-3.8 412.4,44.6 412.4,208.5 328.5,160.0" /><polygon class="ak-iline" points="328.5,127.3 412.4,175.7" /><polygon class="ak-iline" points="328.5,94.5 412.4,142.9" /><polygon class="ak-iline" points="328.5,61.7 412.4,110.2" /><polygon class="ak-iline" points="328.5,28.9 412.4,77.4" /><polygon class="ak-i" points="425.7,52.2 509.6,100.7 509.6,264.6 425.7,216.1" /><polygon class="ak-iline" points="425.7,183.4 509.6,231.8" /><polygon class="ak-iline" points="425.7,150.6 509.6,199.0" /><polygon class="ak-iline" points="425.7,117.8 509.6,166.3" /><polygon class="ak-iline" points="425.7,85.0 509.6,133.5" /><polygon class="ak-i" points="522.9,108.4 596.5,150.9 596.5,314.7 522.9,272.2" /><polygon class="ak-iline" points="522.9,239.5 596.5,282.0" /><polygon class="ak-iline" points="522.9,206.7 596.5,249.2" /><polygon class="ak-iline" points="522.9,173.9 596.5,216.4" /><polygon class="ak-iline" points="522.9,141.1 596.5,183.6" /></g></g>
+<g class="ak-mv__step" data-step="4"><g class="ak-mv__drop"><polygon class="ak-sash" points="252.6,67.9 193.7,101.9 193.7,197.1 252.6,163.1" /><polygon class="ak-glass" points="248.4,75.7 198.4,104.6 198.4,189.6 248.4,160.7" /><polygon class="ak-mullion" points="223.7,175.3 223.7,90.3" /><polygon class="ak-shine" points="239.9,91.2 222.2,128.6" /><polygon class="ak-sash" points="428.0,76.4 501.7,118.9 501.7,254.9 428.0,212.4" /><polygon class="ak-glass" points="432.2,84.2 496.9,121.6 496.9,247.4 432.2,210.0" /><polygon class="ak-mullion" points="464.3,228.9 464.3,103.1" /><polygon class="ak-shine" points="440.7,99.7 458.4,137.1" /><polygon class="ak-sash" points="528.2,137.6 584.1,169.9 584.1,258.3 528.2,226.0" /><polygon class="ak-glass" points="532.3,145.4 579.4,172.6 579.4,250.8 532.3,223.6" /><polygon class="ak-mullion" points="555.5,237.4 555.5,159.2" /><polygon class="ak-shine" points="540.8,160.9 558.5,198.3" /></g></g>
+<g class="ak-mv__step" data-step="5"><g class="ak-mv__drop"><polygon class="ak-rug-l" points="212.2,298.9 353.6,380.5 353.6,381.9 212.2,300.3" /><polygon class="ak-rug-r" points="465.4,315.9 353.6,380.5 353.6,381.9 465.4,317.3" /><polygon class="ak-rug-t" points="324.1,234.3 465.4,315.9 353.6,380.5 212.2,298.9" /><polygon class="ak-sofa-l" points="171.0,218.0 200.4,235.0 200.4,293.5 171.0,276.5" /><polygon class="ak-sofa-r" points="318.2,167.0 200.4,235.0 200.4,293.5 318.2,225.5" /><polygon class="ak-sofa-t" points="288.8,150.0 318.2,167.0 200.4,235.0 171.0,218.0" /><polygon class="ak-sofa-l" points="200.4,265.6 241.7,289.4 241.7,317.3 200.4,293.5" /><polygon class="ak-sofa-r" points="359.4,221.4 241.7,289.4 241.7,317.3 359.4,249.3" /><polygon class="ak-sofa-t" points="318.2,197.6 359.4,221.4 241.7,289.4 200.4,265.6" /><polygon class="ak-table-l" points="294.7,287.7 353.6,321.7 353.6,347.9 294.7,313.9" /><polygon class="ak-table-r" points="406.6,291.1 353.6,321.7 353.6,347.9 406.6,317.3" /><polygon class="ak-table-t" points="347.7,257.1 406.6,291.1 353.6,321.7 294.7,287.7" /><polygon class="ak-pot-l" points="506.7,286.0 530.2,299.6 530.2,327.5 506.7,313.9" /><polygon class="ak-pot-r" points="553.8,286.0 530.2,299.6 530.2,327.5 553.8,313.9" /><polygon class="ak-pot-t" points="530.2,272.4 553.8,286.0 530.2,299.6 506.7,286.0" /><g class="ak-plant"><ellipse cx="530.2" cy="231.6" rx="34" ry="30" /><ellipse cx="510.20000000000005" cy="245.6" rx="20" ry="16" /><ellipse cx="552.2" cy="241.6" rx="18" ry="15" /></g><line class="ak-cord" x1="350.6" y1="158.5" x2="350.6" y2="229.9" /><path class="ak-lamp" d="M332.6 245.9 Q350.6 219.9 368.6 245.9 Z" /></g></g>
+<g class="ak-mv__step" data-step="6"><g class="ak-mv__drop"><ellipse class="ak-glow" cx="350.6" cy="304.9" rx="150" ry="86" /><g class="ak-person ak-person--a"><rect x="257.338" y="269.292" width="33.524" height="65.076" rx="15.776" /><circle cx="274.1" cy="257.46" r="12.818" /></g><g class="ak-person ak-person--b"><rect x="300.272" y="290.848" width="30.056000000000004" height="58.34400000000001" rx="14.144000000000002" /><circle cx="315.3" cy="280.24" r="11.492" /></g><g class="ak-person ak-person--c"><rect x="353.152" y="320.768" width="18.496000000000002" height="35.904" rx="8.704" /><circle cx="362.4" cy="314.24" r="7.072000000000001" /></g></g></g>
+<g class="ak-mv__step" data-step="3"><g class="ak-mv__drop"><polygon class="ak-ext-l" points="374.2,403.3 377.7,405.3 377.7,443.4 374.2,441.4" /><polygon class="ak-ext-r" points="598.5,277.8 377.7,405.3 377.7,443.4 598.5,315.9" /><polygon class="ak-ext-t" points="595.0,275.8 598.5,277.8 377.7,405.3 374.2,403.3" /><polygon class="ak-ext-l" points="120.4,243.8 400.1,405.3 400.1,443.4 120.4,281.9" /><polygon class="ak-ext-r" points="403.6,403.3 400.1,405.3 400.1,443.4 403.6,441.4" /><polygon class="ak-ext-t" points="123.9,241.8 403.6,403.3 400.1,405.3 120.4,243.8" /><polygon class="ak-i-l" points="377.7,405.3 386.5,410.4 386.5,448.5 377.7,443.4" /><polygon class="ak-i-r" points="607.4,282.9 386.5,410.4 386.5,448.5 607.4,321.0" /><polygon class="ak-i-t" points="598.5,277.8 607.4,282.9 386.5,410.4 377.7,405.3" /><polygon class="ak-i-l" points="111.5,248.9 391.2,410.4 391.2,448.5 111.5,287.0" /><polygon class="ak-i-r" points="400.1,405.3 391.2,410.4 391.2,448.5 400.1,443.4" /><polygon class="ak-i-t" points="120.4,243.8 400.1,405.3 391.2,410.4 111.5,248.9" /><polygon class="ak-int-l" points="386.5,410.4 388.9,411.8 388.9,449.9 386.5,448.5" /><polygon class="ak-int-r" points="609.7,284.3 388.9,411.8 388.9,449.9 609.7,322.4" /><polygon class="ak-int-t" points="607.4,282.9 609.7,284.3 388.9,411.8 386.5,410.4" /><polygon class="ak-int-l" points="109.2,250.3 388.9,411.8 388.9,449.9 109.2,288.4" /><polygon class="ak-int-r" points="391.2,410.4 388.9,411.8 388.9,449.9 391.2,448.5" /><polygon class="ak-int-t" points="111.5,248.9 391.2,410.4 388.9,411.8 109.2,250.3" /></g></g>
+<g class="ak-mv__step" data-step="2"><g class="ak-mv__drop"><polygon class="ak-w-l" points="596.5,150.9 609.7,158.5 609.7,322.4 596.5,314.7" /><polygon class="ak-w-r" points="624.4,150.0 609.7,158.5 609.7,322.4 624.4,313.9" /><polygon class="ak-w-t" points="611.2,142.4 624.4,150.0 609.7,158.5 596.5,150.9" /></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="1"><g class="ak-tag"><line class="ak-tag__line" x1="388.9" y1="496.8" x2="539.0" y2="532" /><rect class="ak-tag__box" x="500" y="518" width="78" height="30" rx="15" /><text class="ak-tag__num" x="514" y="538">01</text><text class="ak-tag__text" x="536" y="538">基礎</text></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="2"><g class="ak-tag"><line class="ak-tag__line" x1="624.4" y1="134.7" x2="548.0" y2="84" /><rect class="ak-tag__box" x="470" y="70" width="156" height="30" rx="15" /><text class="ak-tag__num" x="484" y="90">02</text><text class="ak-tag__text" x="506" y="90">構造｜耐震等級3</text></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="3"><g class="ak-tag"><line class="ak-tag__line" x1="440.4" y1="373.6" x2="554.0" y2="434" /><rect class="ak-tag__box" x="476" y="420" width="156" height="30" rx="15" /><text class="ak-tag__num" x="490" y="440">03</text><text class="ak-tag__text" x="512" y="440">断熱｜断熱等級6</text></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="4"><g class="ak-tag"><line class="ak-tag__line" x1="221.1" y1="90.5" x2="102.0" y2="164" /><rect class="ak-tag__box" x="70" y="150" width="64" height="30" rx="15" /><text class="ak-tag__num" x="84" y="170">04</text><text class="ak-tag__text" x="106" y="170">窓</text></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="5"><g class="ak-tag"><line class="ak-tag__line" x1="229.9" y1="184.0" x2="70.0" y2="314" /><rect class="ak-tag__box" x="24" y="300" width="92" height="30" rx="15" /><text class="ak-tag__num" x="38" y="320">05</text><text class="ak-tag__text" x="60" y="320">暮らし</text></g></g>
+<g class="ak-mv__step ak-mv__step--tag" data-step="6"><g class="ak-tag"><line class="ak-tag__line" x1="274.1" y1="263.9" x2="145.0" y2="500" /><rect class="ak-tag__box" x="40" y="486" width="210" height="30" rx="15" /><text class="ak-tag__num" x="54" y="506">06</text><text class="ak-tag__text" x="76" y="506">UA値0.28｜家じゅう暖か</text></g></g>
+</svg>
+        <p class="ak-mv__temp ak-mv__temp--out" aria-hidden="true"><span>外</span><b class="ak-en">1</b>℃</p>
+        <p class="ak-mv__temp ak-mv__temp--in" aria-hidden="true"><span>室内</span><b class="ak-en">21</b>℃</p>
+        <p class="ak-mv__caption ak-sp" aria-hidden="true"><b class="ak-en"></b><span></span></p>
+      </div>
+    </div>
+    <p class="ak-mv__note">※イラストはイメージです。気温は山陰の冬を想定した体験ブースの設定、室温は体感のイメージです。</p>
+  </div>
+
+  <!-- 2. 共感 -->
+  <div class="ak-sec ak-sec--warm">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">YOUR WORRIES</p>
+      <p class="ak-h">カタログの数字だけで、<br class="ak-sp" />家を選んでいませんか？</p>
+      <ul class="ak-worry">
+        <li><b>断熱等級・UA値</b>…数字を見比べても、<br class="ak-pc" />実際の暖かさの違いが分からない</li>
+        <li><b>耐震等級3</b>と書いてあっても、<br class="ak-pc" />何がどう違うのか説明できない</li>
+        <li><b>高性能＝高い</b>？ 光熱費まで含めると<br class="ak-pc" />どちらが得なのか知りたい</li>
+        <li><b>壁の中</b>は完成すると見えない。<br class="ak-pc" />本当にちゃんと施工されるか不安</li>
+      </ul>
+      <p class="ak-worry__answer">その答えは、<span>アートラボで「体感」できます。</span></p>
+    </div>
+  </div>
+
+  <!-- 3. アートラボとは -->
+  <div class="ak-sec">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">WHAT'S ArtLab</p>
+      <p class="ak-h">ブランドや知名度ではなく、<br />体験して<span class="ak-red">「納得して選ぶ」</span>という選択を。</p>
+      <div class="ak-about">
+        <div class="ak-about__img"><img src="../0001/img/lab-intro.jpg" alt="アートラボの館内。断熱や構造の展示と、打ち合わせスペース" width="643" height="706" /></div>
+        <div class="ak-about__body">
+          <p class="ak-text">アートラボは、山陰の気候に合った家づくりを「見て・触れて・体感」できる、アート建工の体験型住宅展示場です。</p>
+          <p class="ak-text">一般的な住宅展示場が間取りやデザインを見る場所なら、アートラボは<strong>“住宅の中身”</strong>を確かめる場所。完成後には見えなくなる断熱材や構造、性能の差による室温の違いなど、「住んでから分かること」を、建てる前に体験できます。</p>
+          <table class="ak-vs">
+            <thead><tr><th></th><th>一般的な住宅展示場</th><th class="is-lab">アートラボ</th></tr></thead>
+            <tbody>
+              <tr><th>見るもの</th><td>間取り・デザイン</td><td class="is-lab">断熱・構造・光熱費</td></tr>
+              <tr><th>分かること</th><td>完成後の見た目</td><td class="is-lab">住んでからの快適さ</td></tr>
+              <tr><th>比べ方</th><td>カタログの数値</td><td class="is-lab">自分の体で比較</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4〜6. 体感ポイント -->
+  <div id="ak-point" class="ak-sec ak-sec--gray">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">EXPERIENCE POINT</p>
+      <p class="ak-h">アートラボの3つの体感</p>
+
+      <div class="ak-point ak-point--cold">
+        <div class="ak-point__head">
+          <p class="ak-point__num ak-en">POINT<b>01</b></p>
+          <p class="ak-point__title">山陰の冬（0〜2℃）から、断熱された室内へ。<br /><span>びっくり「温度差体験」</span></p>
+        </div>
+        <div class="ak-point__body">
+          <div class="ak-point__imgs">
+            <img src="../0001/img/p1-thermo.jpg" alt="サーモカメラの映像で、部屋ごとの温度の違いを確かめる様子" width="300" height="203" />
+            <img src="../0001/img/p1-glass.jpg" alt="窓ガラスに手を当てて、冷たさの違いを確かめる様子" width="300" height="202" />
+          </div>
+          <div>
+            <p class="ak-text">0〜2℃の環境から、断熱等級の異なる4つの部屋へ。断熱等級の違いが、体感としてどれくらい変わるのか。山陰の冬に合った断熱性能を、肌で確かめていただけます。</p>
+            <ul class="ak-grades" aria-label="比較できる4つの部屋">
+              <li><span>部屋A</span>断熱等級4</li>
+              <li><span>部屋B</span>断熱等級5</li>
+              <li class="is-std"><span>部屋C</span>断熱等級6<small>アート建工の標準</small></li>
+              <li><span>部屋D</span>断熱等級7</li>
+            </ul>
+            <p class="ak-note">※4部屋の等級の組み合わせは会場により異なる場合があります。<em class="ak-todo">要確認</em></p>
+          </div>
+        </div>
+        <div class="ak-more">
+          <a class="ak-more__btn" href="#ak-more-voice" data-ak-more>体感した人の感想を見る</a>
+          <div class="ak-more__body" id="ak-more-voice">
+            <div class="ak-voice">
+              <img src="../0001/img/couple.png" alt="" width="131" height="158" />
+              <p>「断熱性能の違いで、こんなに室温が変わるのかと驚きました。快適な空間には、温かさだけではないことも理解できました。」<span>30代ご夫婦</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ak-point">
+        <div class="ak-point__head">
+          <p class="ak-point__num ak-en">POINT<b>02</b></p>
+          <p class="ak-point__title">構造の違いがわかる<br /><span>「耐震体感」</span></p>
+        </div>
+        <div class="ak-point__body">
+          <div class="ak-point__imgs">
+            <img src="../0001/img/p2-frame.jpg" alt="構造躯体の展示を見上げる様子" width="300" height="203" />
+            <img src="../0001/img/p2-ground.jpg" alt="地盤の違いによる揺れ方を比べる展示" width="300" height="203" />
+          </div>
+          <div>
+            <p class="ak-text">耐震に欠かせない地盤の理解や、構造計算・構造躯体の大切さを確認。地震体験装置で実際の揺れを再現し、安心して住み続けられる住宅の構造を体感・納得していただけるコーナーです。</p>
+            <p class="ak-point__spec"><span>アート建工の標準</span>耐震等級<b class="ak-en">3</b></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ak-point">
+        <div class="ak-point__head">
+          <p class="ak-point__num ak-en">POINT<b>03</b></p>
+          <p class="ak-point__title">山陰の暮らしで大きく変わる<br /><span>「省エネ・トータルコスト」</span></p>
+        </div>
+        <div class="ak-point__body">
+          <div class="ak-point__imgs">
+            <img src="../0001/img/p3-touch.jpg" alt="窓の性能の違いを、手をかざして確かめる様子" width="300" height="203" />
+            <img src="../0001/img/p3-wall.jpg" alt="壁の中の断熱材や構造を、スタッフの説明を聞きながら見る様子" width="300" height="203" />
+          </div>
+          <div>
+            <p class="ak-text">住宅は建てる費用だけでなく、光熱費や維持費を含めた長い目で考えることが大切です。実際の窓や外壁などに触れて違いを確かめながら、将来の負担を抑える住まいの考え方をご紹介します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ak-kids">
+        <img src="../0001/img/kids.jpg" alt="アートラボのキッズスペース" width="450" height="300" />
+        <div>
+          <p class="ak-kids__label ak-en">KIDS SPACE</p>
+          <p class="ak-kids__title">お子さま連れでも、安心して。</p>
+          <p class="ak-text">打ち合わせスペースからお子さまの様子が見えるので、ご家族のペースでゆっくりご相談いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. イベント：アートラボ体験会 -->
+  <div id="ak-event" class="ak-sec ak-event">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">EVENT</p>
+      <p class="ak-h">アートラボ体験会<br class="ak-sp" /><span class="ak-h-sub">見学だけでも大歓迎・予約制</span></p>
+      <p class="ak-text ak-center">スタッフがご案内しながら、3つの体感を順番に回ります。<br class="ak-pc" />家づくりを始めたばかりの方も、他社と比べている方も、お気軽にどうぞ。</p>
+      <ol class="ak-flow">
+        <li><span class="ak-flow__num ak-en">01</span><p class="ak-flow__title">受付・ご案内</p><p>ご予約のお名前を伝えるだけ。手ぶらでOK</p></li>
+        <li><span class="ak-flow__num ak-en">02</span><p class="ak-flow__title">温度差体験</p><p>0〜2℃の空間から、断熱等級の違う部屋へ</p></li>
+        <li><span class="ak-flow__num ak-en">03</span><p class="ak-flow__title">耐震体感</p><p>地震体験装置で揺れの違いを体験</p></li>
+        <li><span class="ak-flow__num ak-en">04</span><p class="ak-flow__title">省エネ・相談</p><p>光熱費の比較や、資金・土地のご相談も</p></li>
+      </ol>
+      <dl class="ak-event__info">
+        <div><dt>開催日</dt><dd>毎週土・日・祝日<em class="ak-todo">要確認</em><br /><small>水曜定休。平日のご予約もご相談ください</small></dd></div>
+        <div><dt>時間</dt><dd>10:00〜17:00（ご希望の時間をお選びください）<br /><small>所要時間：約90分<em class="ak-todo">要確認</em></small></dd></div>
+        <div><dt>会場</dt><dd>アートラボ 米子・鳥取・出雲・松江</dd></div>
+        <div><dt>参加費</dt><dd>無料</dd></div>
+      </dl>
+      <div class="ak-gift">
+        <p class="ak-gift__label">来場予約特典</p>
+        <p class="ak-gift__title">QUOカード <strong>最大<b class="ak-en">10,000</b>円分</strong>プレゼント</p>
+        <ul class="ak-gift__list">
+          <li>予約時の事前アンケートにすべてご回答のうえご来場で<b>8,000円分</b></li>
+          <li>さらに来場時の LINE お友だち登録で<b>2,000円分</b></li>
+        </ul>
+        <p class="ak-note">※アート建工グループ（アート建工、トコスホーム、マチリブ、リブベース、ココスム、マチリブ不動産）に初めてご来場の、住宅をご検討中のご家族さま1組につき1回限りです。</p>
+      </div>
+      <div class="ak-cta">
+        <a class="ak-btn ak-btn--main" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/event/">アートラボ体験会を予約する</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. 標準仕様 -->
+  <div class="ak-sec ak-sec--warm">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">SANIN STANDARD</p>
+      <p class="ak-h">体感した性能が、<br class="ak-sp" />アート建工の「標準」です。</p>
+      <ul class="ak-spec">
+        <li><span>断熱性能</span><b>断熱等級<em class="ak-en">6</em></b><small>ZEH水準（等級5）を上回る</small></li>
+        <li><span>外皮平均熱貫流率</span><b>UA値<em class="ak-en">0.28</em></b><small>W/㎡・K</small></li>
+        <li><span>耐震性能</span><b>耐震等級<em class="ak-en">3</em></b><small>最高等級</small></li>
+      </ul>
+      <p class="ak-text ak-center">「山陰スタンダード」は、アート建工グループが独自に定めた鳥取・島根の家づくりの基準です。<br class="ak-pc" />冬の寒さ、夏の暑さ、湿気や結露。山陰特有の気候に合わせ、東京大学との共同研究にも取り組みながら、<br class="ak-pc" />建てる費用だけでなく、住んでからの光熱費やメンテナンス費まで含めた「トータルコスト」を大切にしています。</p>
+      <p class="ak-note ak-center">※UA値は代表的なプランでの数値です。間取りにより異なります。<em class="ak-todo">要確認</em></p>
+    </div>
+  </div>
+
+  <!-- 9. 安心の実績 -->
+  <div class="ak-sec">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">RELIABILITY</p>
+      <p class="ak-h">山陰で選ばれ続けて、40年。</p>
+      <img class="ak-evidence" src="../0001/img/evidence.png" alt="25年度 鳥取県下戸建て新築住宅ランキング 鳥取県No.1（建設工業新聞調べ）、24年度着工棟数 ビルダー部門 山陰No.1（住宅産業研究所調べ）、累計引渡し棟数 2,077棟（1985年創業〜2026年4月まで）" width="781" height="252" />
+      <ul class="ak-trust">
+        <li><b class="ak-en">1985</b><span>年創業・地域密着40年</span></li>
+        <li><b class="ak-en">246</b><span>棟（2025年度の着工実績）</span></li>
+        <li><b>上位<em class="ak-en">1.25</em>%</b><span>企業信用調査 評点60点以上<br />（山陰の建設業4,311社中54社）</span></li>
+      </ul>
+      <p class="ak-note ak-center">※鳥取県No.1：建設工業新聞調べ（25年度 鳥取県下戸建て新築住宅ランキング）。山陰No.1：住宅産業研究所調べ（24年度着工棟数 ビルダー部門）。<br class="ak-pc" />企業信用調査：民間企業信用調査データ（2026年6月時点）。</p>
+    </div>
+  </div>
+
+  <!-- 10. 会場（地図で選ぶ） -->
+  <div id="ak-place" class="ak-sec ak-sec--gray">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">PLACE</p>
+      <p class="ak-h">お近くのアートラボを選ぶ</p>
+      <p class="ak-text ak-center">地図の地名か、下のボタンを押すと会場の情報に切り替わります。</p>
+      <div class="ak-map" data-ak-map>
+        <div class="ak-map__figure">
+<svg class="ak-map__svg" viewBox="0 0 1340 554" role="img" aria-label="アートラボ4会場（島根県出雲市・松江市、鳥取県米子市・鳥取市）の地図" xmlns="http://www.w3.org/2000/svg">
+<rect class="ak-map__sea" width="1340" height="554" />
+<g class="ak-map__land" transform="translate(0.000000,554.000000) scale(0.100000,-0.100000)">
+<path d="M13219 4481 c-59 -19 -148 -87 -180 -140 -17 -28 -81 -52 -129 -49
+-42 3 -63 -5 -97 -36 -49 -43 -97 -59 -142 -46 -19 5 -37 8 -40 6 -4 -3 -26
+-7 -51 -11 -64 -10 -76 -19 -107 -82 -19 -38 -40 -63 -66 -80 -25 -16 -45 -39
+-57 -68 -21 -48 -71 -81 -180 -116 -30 -9 -83 -29 -117 -43 -81 -34 -271 -74
+-306 -65 -29 8 -92 -6 -102 -22 -4 -5 -24 -21 -45 -34 -65 -41 -72 -116 -20
+-213 36 -67 -36 -127 -150 -124 -110 3 -135 33 -107 129 28 96 -12 148 -112
+146 -32 -1 -80 7 -113 18 -75 25 -124 11 -150 -41 -10 -19 -26 -38 -35 -41
+-18 -7 -110 -2 -123 6 -4 2 -47 0 -95 -6 -103 -11 -183 1 -210 32 -35 37 -85
+42 -169 15 -41 -13 -77 -21 -80 -18 -32 31 -258 -12 -327 -63 -74 -54 -163
+-76 -232 -57 -48 13 -102 -1 -123 -32 -20 -32 -45 -37 -100 -20 -37 11 -56 12
+-88 3 -23 -6 -66 -11 -96 -10 -30 1 -100 -3 -155 -9 -227 -24 -408 -24 -473
+-1 -47 16 -67 18 -93 11 -45 -13 -240 -3 -303 15 -36 11 -92 15 -184 13 -128
+-1 -133 0 -194 30 -145 71 -183 84 -269 92 -66 6 -108 17 -175 47 -120 51
+-296 51 -373 0 -20 -14 -63 -32 -96 -40 -89 -23 -176 -41 -207 -43 -16 -1 -37
+-2 -48 -3 -11 0 -49 -29 -84 -64 -50 -50 -74 -66 -112 -76 -153 -40 -184 -52
+-201 -79 -9 -15 -32 -44 -50 -65 -18 -20 -33 -43 -33 -50 0 -6 -12 -34 -25
+-62 -14 -27 -25 -55 -25 -61 -1 -82 -172 -129 -302 -84 -33 11 -68 20 -77 19
+-47 -6 -305 50 -400 88 -74 29 -116 63 -136 110 -16 37 -32 47 -106 62 -88 18
+-233 184 -231 265 0 16 -8 55 -19 87 -15 44 -18 66 -11 91 5 18 5 46 1 61 -16
+59 16 91 74 76 69 -19 195 41 198 95 6 104 -50 137 -204 122 -31 -4 -75 -16
+-97 -27 -39 -20 -43 -21 -101 -6 -64 16 -107 11 -138 -17 -21 -19 -39 -22 -81
+-13 -19 4 -51 2 -70 -3 -73 -21 -169 -38 -188 -33 -11 3 -46 -3 -77 -12 -70
+-20 -113 -13 -126 22 -14 39 -59 92 -82 99 -12 3 -39 17 -60 31 -46 32 -97 33
+-152 5 -40 -21 -41 -21 -110 -3 -105 27 -147 10 -167 -66 -16 -66 -89 -153
+-149 -180 -38 -17 -53 -30 -65 -58 -14 -34 -50 -58 -78 -53 -6 1 -30 -2 -52
+-6 -33 -6 -53 -3 -95 15 -140 61 -242 -3 -204 -128 25 -83 -16 -125 -103 -103
+-26 6 -63 8 -91 3 -25 -4 -50 -6 -56 -4 -34 11 -144 2 -175 -14 -36 -19 -59
+-22 -248 -30 -106 -4 -207 -26 -261 -55 -11 -5 -39 -12 -63 -15 -24 -3 -54
+-14 -68 -24 -14 -10 -37 -22 -50 -26 -56 -17 -102 -48 -122 -81 -21 -36 -97
+-66 -243 -94 -128 -26 -164 -79 -122 -180 28 -68 -18 -100 -143 -100 -28 0
+-76 -9 -107 -20 -58 -20 -85 -19 -114 6 -25 22 -71 32 -104 22 -31 -9 -114
+-25 -175 -34 -72 -10 -107 -25 -143 -62 -87 -89 -62 -179 64 -235 85 -39 117
+-83 140 -197 11 -57 25 -115 30 -128 7 -17 5 -33 -7 -56 -9 -17 -27 -73 -39
+-125 -23 -96 -22 -117 8 -175 23 -43 9 -68 -47 -84 -27 -8 -52 -22 -60 -35 -7
+-12 -32 -55 -56 -95 -102 -172 -200 -240 -452 -307 l-58 -16 0 -684 0 -685
+6700 0 6700 0 0 2228 0 2227 -73 18 c-39 9 -74 17 -77 16 -3 0 -17 -4 -31 -8z
+m-8822 -810 c12 -11 39 -22 58 -25 28 -6 38 -14 51 -44 8 -20 26 -48 39 -62
+13 -14 33 -51 45 -82 24 -64 53 -93 105 -102 28 -6 38 -14 49 -41 8 -18 28
+-41 44 -49 20 -10 35 -29 43 -53 7 -22 38 -63 74 -99 52 -52 65 -72 75 -116
+17 -73 25 -85 69 -108 41 -20 53 -43 40 -76 -10 -30 -35 -33 -104 -15 -56 15
+-61 19 -82 63 -27 57 -47 68 -124 73 -62 4 -177 -24 -247 -60 -18 -10 -45 -15
+-59 -12 -15 3 -48 -1 -74 -9 -50 -15 -84 -9 -108 20 -16 19 -131 56 -175 56
+-132 0 -187 90 -100 165 48 42 56 79 32 146 -10 30 -17 65 -14 78 2 14 -3 47
+-11 74 -20 68 -10 101 40 134 23 16 64 51 91 78 79 82 186 110 243 66z m-1322
+-516 c42 9 87 20 98 24 33 12 65 -4 80 -41 18 -42 35 -56 88 -71 56 -16 67
+-45 44 -122 -19 -67 -61 -100 -151 -116 -32 -6 -86 -20 -119 -30 -33 -10 -83
+-18 -112 -17 -36 1 -59 -4 -79 -18 -50 -35 -69 -44 -101 -44 -54 0 -205 -39
+-276 -71 -37 -17 -75 -28 -83 -25 -8 3 -39 -3 -69 -13 -53 -19 -53 -19 -105 8
+-29 14 -58 35 -64 46 -5 11 -18 32 -27 46 -10 15 -25 52 -34 84 -14 46 -24 61
+-51 77 -99 58 -6 145 161 149 77 2 208 38 246 68 24 18 100 43 172 56 21 3 55
+14 75 25 57 28 61 28 148 -2 83 -28 83 -28 159 -13z"/>
+</g>
+<text class="ak-map__label ak-map__label--area" x="291.3" y="491.7">島根県</text>
+<text class="ak-map__label ak-map__label--area" x="997.6" y="393.7">鳥取県</text>
+<text class="ak-map__label ak-map__label--sea" x="852.0" y="71.7">日本海</text>
+<text class="ak-map__label ak-map__label--lake" x="276.7" y="264.2">宍道湖</text>
+<text class="ak-map__label ak-map__label--lake" x="451.5" y="237.3">中海</text>
+<g class="ak-map__spot" data-area="izumo" tabindex="0" role="button" aria-label="出雲の会場を見る">
+<line class="ak-map__line" x1="110.0" y1="400" x2="120.0" y2="331.0" />
+<circle class="ak-map__pulse" cx="120.0" cy="331.0" r="20" />
+<circle class="ak-map__dot" cx="120.0" cy="331.0" r="11" />
+<rect class="ak-map__btn" x="20" y="400" width="180" height="64" rx="32" />
+<text class="ak-map__btn-text" x="110.0" y="443">出雲</text>
+</g>
+<g class="ak-map__spot" data-area="matsue" tabindex="0" role="button" aria-label="松江の会場を見る">
+<line class="ak-map__line" x1="420.0" y1="470" x2="353.9" y2="248.6" />
+<circle class="ak-map__pulse" cx="353.9" cy="248.6" r="20" />
+<circle class="ak-map__dot" cx="353.9" cy="248.6" r="11" />
+<rect class="ak-map__btn" x="330" y="470" width="180" height="64" rx="32" />
+<text class="ak-map__btn-text" x="420.0" y="513">松江</text>
+</g>
+<g class="ak-map__spot" data-area="yonago" tabindex="0" role="button" aria-label="米子の会場を見る">
+<line class="ak-map__line" x1="740.0" y1="430" x2="545.1" y2="264.5" />
+<circle class="ak-map__pulse" cx="545.1" cy="264.5" r="20" />
+<circle class="ak-map__dot" cx="545.1" cy="264.5" r="11" />
+<rect class="ak-map__btn" x="650" y="430" width="180" height="64" rx="32" />
+<text class="ak-map__btn-text" x="740.0" y="473">米子</text>
+</g>
+<g class="ak-map__spot" data-area="tottori" tabindex="0" role="button" aria-label="鳥取の会場を見る">
+<line class="ak-map__line" x1="1150.0" y1="330" x2="1180.4" y2="196.3" />
+<circle class="ak-map__pulse" cx="1180.4" cy="196.3" r="20" />
+<circle class="ak-map__dot" cx="1180.4" cy="196.3" r="11" />
+<rect class="ak-map__btn" x="1060" y="330" width="180" height="64" rx="32" />
+<text class="ak-map__btn-text" x="1150.0" y="373">鳥取</text>
+</g>
+</svg>
+          <p class="ak-map__credit"><a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>をもとに作成</p>
+        </div>
+        <div class="ak-map__panel">
+          <ul class="ak-tabs" role="tablist">
+            <li><a class="ak-tabs__btn is-active" href="#ak-place-yonago" data-area="yonago" role="tab" aria-selected="true">米子</a></li>
+            <li><a class="ak-tabs__btn" href="#ak-place-tottori" data-area="tottori" role="tab" aria-selected="false">鳥取</a></li>
+            <li><a class="ak-tabs__btn" href="#ak-place-matsue" data-area="matsue" role="tab" aria-selected="false">松江</a></li>
+            <li><a class="ak-tabs__btn" href="#ak-place-izumo" data-area="izumo" role="tab" aria-selected="false">出雲</a></li>
+          </ul>
+          <div class="ak-place is-active" id="ak-place-yonago" data-area="yonago" role="tabpanel">
+            <p class="ak-place__area">鳥取県米子市</p>
+            <p class="ak-place__name">ArtLab 米子<span>体験型住宅展示場</span></p>
+            <dl class="ak-place__info">
+              <div><dt>所在地</dt><dd>鳥取県米子市米原5丁目5-17</dd></div>
+              <div><dt>電話</dt><dd>0120-899-902</dd></div>
+              <div><dt>営業時間</dt><dd>10:00〜17:00（水曜定休）</dd></div>
+            </dl>
+            <a class="ak-btn ak-btn--sub ak-btn--block" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/157737_0001/model/mc_007/">アートラボ米子の詳細を見る</a>
+          </div>
+          <div class="ak-place" id="ak-place-tottori" data-area="tottori" role="tabpanel">
+            <p class="ak-place__area">鳥取県鳥取市</p>
+            <p class="ak-place__name">ArtLab 鳥取<span>体験型住宅展示場</span></p>
+            <dl class="ak-place__info">
+              <div><dt>所在地</dt><dd>鳥取県鳥取市南隈838</dd></div>
+              <div><dt>電話</dt><dd>0120-029-300</dd></div>
+              <div><dt>営業時間</dt><dd>10:00〜17:00（水曜定休）</dd></div>
+            </dl>
+            <a class="ak-btn ak-btn--sub ak-btn--block" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/model/">アートラボ鳥取の詳細を見る</a>
+          </div>
+          <div class="ak-place" id="ak-place-matsue" data-area="matsue" role="tabpanel">
+            <p class="ak-place__area">島根県松江市</p>
+            <p class="ak-place__name">ArtLab 松江<span>体験型住宅展示場</span></p>
+            <dl class="ak-place__info">
+              <div><dt>所在地</dt><dd>島根県松江市東朝日町73-5</dd></div>
+              <div><dt>電話</dt><dd>0120-932-032</dd></div>
+              <div><dt>営業時間</dt><dd>10:00〜17:00（水曜定休）</dd></div>
+            </dl>
+            <a class="ak-btn ak-btn--sub ak-btn--block" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/157737_0003/model/mc_001/">アートラボ松江の詳細を見る</a>
+          </div>
+          <div class="ak-place" id="ak-place-izumo" data-area="izumo" role="tabpanel">
+            <p class="ak-place__area">島根県出雲市</p>
+            <p class="ak-place__name">ArtLab 出雲<span>体験型住宅展示場</span></p>
+            <dl class="ak-place__info">
+              <div><dt>所在地</dt><dd>島根県出雲市渡橋町263-1</dd></div>
+              <div><dt>電話</dt><dd>0120-600-665</dd></div>
+              <div><dt>営業時間</dt><dd>10:00〜17:00（水曜定休）</dd></div>
+            </dl>
+            <a class="ak-btn ak-btn--sub ak-btn--block" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/157737_0002/model/mc_001/">アートラボ出雲の詳細を見る</a>
+          </div>
+          <p class="ak-note">※施設により体験内容が一部異なります。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. よくある質問 -->
+  <div class="ak-sec">
+    <div class="ak-inr">
+      <p class="ak-h-en ak-en">FAQ</p>
+      <p class="ak-h">よくあるご質問</p>
+      <ul class="ak-faq">
+        <li class="ak-more">
+          <a class="ak-more__btn ak-faq__q" href="#ak-faq-1" data-ak-more>アートラボは、住宅展示場と何が違うのですか？</a>
+          <div class="ak-more__body" id="ak-faq-1"><p class="ak-faq__a">一般的な住宅展示場は間取りやデザインを見る場所ですが、アートラボは“住宅の中身”を体感できる施設です。完成後には見えなくなる断熱材や構造、性能の差による室温や快適さの違いなど、「住んでから分かること」を事前に体験できます。</p></div>
+        </li>
+        <li class="ak-more">
+          <a class="ak-more__btn ak-faq__q" href="#ak-faq-2" data-ak-more>家づくりの知識がなくても、違いが分かりますか？</a>
+          <div class="ak-more__body" id="ak-faq-2"><p class="ak-faq__a">はい。断熱・耐震・構造などを「数字」ではなく、「寒さ」「揺れ」「快適さ」の違いとして体験できるので、初めて家づくりを考える方にも分かりやすい内容です。</p></div>
+        </li>
+        <li class="ak-more">
+          <a class="ak-more__btn ak-faq__q" href="#ak-faq-3" data-ak-more>子ども連れでも大丈夫ですか？</a>
+          <div class="ak-more__body" id="ak-faq-3"><p class="ak-faq__a">はい、キッズスペースがあり、打ち合わせスペースからお子さまの様子が見えます。寒さや揺れの体験は、ご家族で一緒に楽しんでいただけます。</p></div>
+        </li>
+        <li class="ak-more">
+          <a class="ak-more__btn ak-faq__q" href="#ak-faq-4" data-ak-more>高性能な家は、価格が高いのではないですか？</a>
+          <div class="ak-more__body" id="ak-faq-4"><p class="ak-faq__a">アート建工は「高性能＝高額」ではなく、無駄を省いて本当に必要な性能に投資する考え方を大切にしています。将来の光熱費や快適さまで含めた「トータルコスト」で、体験会の中でご説明します。</p></div>
+        </li>
+        <li class="ak-more">
+          <a class="ak-more__btn ak-faq__q" href="#ak-faq-5" data-ak-more>体験会に参加したら、契約しないといけませんか？</a>
+          <div class="ak-more__body" id="ak-faq-5"><p class="ak-faq__a">いいえ、見学・体験だけでも大歓迎です。他社と比較検討中の方も、ぜひ「比べる材料」としてご活用ください。<em class="ak-todo">要確認</em></p></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 12. 締め -->
+  <div class="ak-closing">
+    <div class="ak-inr">
+      <p class="ak-closing__title">数字ではなく、<br class="ak-sp" />自分の体で選ぶ家づくりを。</p>
+      <p class="ak-text ak-center">ご家族みんなで、未来の暮らしを体験しにお越しください。</p>
+      <p class="ak-closing__gift">来場予約で QUOカード<strong>最大<b class="ak-en">10,000</b>円分</strong></p>
+      <div class="ak-cta">
+        <a class="ak-btn ak-btn--main" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/event/">アートラボ体験会を予約する</a>
+        <a class="ak-btn ak-btn--sub" href="https://suumo.jp/chumon/tn_tottori/rn_artkenko/model/">モデルハウス一覧を見る</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script type="text/javascript" src="../0001/js/main.js"></script>
+</div>
+
+</div>
+</body></html>

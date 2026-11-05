@@ -1,0 +1,348 @@
+@charset "UTF-8";
+/* アート建工様 SUUMO フリーページ 共通スタイル
+   #includeContent は書き出し時に PC：#includeContent ／スマホ：#kosha_free に置き換わる。
+   SUUMO 側の CSS が h2/h3・p・a・table の揃えや色に干渉するため、見出しも p で組み、すべて #includeContent .ak 配下に書く。
+   色はアートラボ公式サイトの配色（赤 #b81c22・オレンジ #d55203・淡いオレンジ #fef5ec・青 #3d7dd5）に合わせた */
+
+#includeContent .ak {
+  --ak-ink: #2b2523;
+  --ak-sub: #6d6460;
+  --ak-line: #e8e1dc;
+  --ak-red: #b81c22;
+  --ak-orange: #d55203;
+  --ak-warm: #fef5ec;
+  --ak-warm2: #fedbb7;
+  --ak-blue: #3d7dd5;
+  --ak-cold: #e9f1fb;
+  --ak-gray: #f6f4f2;
+  --ak-todo: #c0392b;
+  color: var(--ak-ink);
+  font-family: "Noto Sans JP", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  line-height: 1.8;
+  text-align: left;
+  -webkit-text-size-adjust: 100%;
+}
+#includeContent .ak *, #includeContent .ak *::before, #includeContent .ak *::after { box-sizing: border-box; }
+#includeContent .ak p, #includeContent .ak ul, #includeContent .ak ol, #includeContent .ak dl, #includeContent .ak dd, #includeContent .ak figure { margin: 0; padding: 0; }
+#includeContent .ak ul, #includeContent .ak ol { list-style: none; }
+#includeContent .ak img { display: block; max-width: 100%; height: auto; border: 0; }
+#includeContent .ak a { color: var(--ak-red); }
+#includeContent .ak strong, #includeContent .ak b { font-weight: 700; }
+#includeContent .ak em { font-style: normal; }
+#includeContent .ak .ak-en { font-family: "Montserrat", "Noto Sans JP", sans-serif; letter-spacing: .04em; }
+#includeContent .ak .ak-center { text-align: center !important; }
+#includeContent .ak .ak-red { color: var(--ak-red); }
+#includeContent .ak .ak-todo { display: inline-block; margin-left: 4px; padding: 0 6px; border: 1px solid var(--ak-todo); border-radius: 3px; color: var(--ak-todo); font-size: 11px; font-weight: 700; line-height: 1.7; vertical-align: middle; }
+#includeContent .ak .ak-text { font-size: 15px; line-height: 1.95; }
+#includeContent .ak .ak-text + .ak-text { margin-top: 12px; }
+#includeContent .ak .ak-text strong { color: var(--ak-red); }
+#includeContent .ak .ak-note { margin-top: 10px; font-size: 12px; line-height: 1.7; color: var(--ak-sub); }
+
+/* セクション共通 */
+#includeContent .ak .ak-sec { padding: 72px 0; }
+#includeContent .ak .ak-sec--warm { background: var(--ak-warm); }
+#includeContent .ak .ak-sec--gray { background: var(--ak-gray); }
+#includeContent .ak .ak-h-en { text-align: center !important; font-size: 14px; font-weight: 600; letter-spacing: .24em; color: var(--ak-orange); }
+#includeContent .ak .ak-h { margin: 6px 0 28px; text-align: center !important; font-size: 28px; font-weight: 700; line-height: 1.5; letter-spacing: .04em; }
+#includeContent .ak .ak-h-sub { display: inline-block; margin-left: 12px; padding: 2px 12px; border-radius: 999px; background: var(--ak-red); color: #fff; font-size: 13px; vertical-align: middle; letter-spacing: .06em; }
+
+/* ボタン（SUUMO 側の a:link / a:visited の色指定に負けないよう、文字色は !important） */
+#includeContent .ak .ak-btn {
+  display: inline-block; padding: 17px 34px; border-radius: 999px;
+  font-size: 16px; font-weight: 700; line-height: 1.4; letter-spacing: .06em; text-align: center !important; text-decoration: none !important;
+  transition: opacity .2s, background-color .2s, transform .2s;
+}
+#includeContent .ak .ak-btn::after { content: ""; display: inline-block; width: 7px; height: 7px; margin-left: 12px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: translateY(-2px) rotate(45deg); }
+#includeContent .ak .ak-btn--main, #includeContent .ak .ak-btn--main:link, #includeContent .ak .ak-btn--main:visited, #includeContent .ak .ak-btn--main:hover { background: var(--ak-red); color: #fff !important; box-shadow: 0 6px 0 #8a1419; }
+#includeContent .ak .ak-btn--main:hover { opacity: .9; transform: translateY(2px); box-shadow: 0 4px 0 #8a1419; }
+#includeContent .ak .ak-btn--sub, #includeContent .ak .ak-btn--sub:link, #includeContent .ak .ak-btn--sub:visited, #includeContent .ak .ak-btn--sub:hover { background: #fff; color: var(--ak-red) !important; border: 2px solid var(--ak-red); }
+#includeContent .ak .ak-btn--sub:hover { background: var(--ak-warm); }
+#includeContent .ak .ak-btn--block { display: block; width: 100%; margin-top: 18px; }
+#includeContent .ak .ak-cta { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 32px; }
+#includeContent .ak .ak-link, #includeContent .ak .ak-link:link, #includeContent .ak .ak-link:visited { color: var(--ak-ink) !important; font-size: 14px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ============ 1. トップビジュアル ============ */
+#includeContent .ak .ak-mv { position: relative; overflow: hidden; background: linear-gradient(115deg, var(--ak-cold) 0%, var(--ak-cold) 34%, var(--ak-warm) 62%, #fde6cf 100%); }
+#includeContent .ak .ak-mv__inr { position: relative; z-index: 1; display: flex; align-items: center; }
+#includeContent .ak .ak-mv__copy { position: relative; z-index: 2; }
+#includeContent .ak .ak-mv__label { display: flex; align-items: center; gap: 10px; color: var(--ak-red); font-size: 22px; font-weight: 700; }
+#includeContent .ak .ak-mv__label span { padding: 2px 10px; border: 1px solid var(--ak-red); border-radius: 3px; font-family: "Noto Sans JP", sans-serif; font-size: 12px; letter-spacing: .1em; }
+#includeContent .ak .ak-mv__title { margin-top: 14px; font-weight: 900; line-height: 1.32; letter-spacing: .04em; }
+#includeContent .ak .ak-mv__title-em { position: relative; color: var(--ak-red); }
+#includeContent .ak .ak-mv__title-em::after { content: ""; position: absolute; left: 0; right: 0; bottom: .02em; height: .22em; background: rgba(213, 82, 3, .22); z-index: -1; }
+#includeContent .ak .ak-mv__lead { margin-top: 16px; font-size: 14px; line-height: 1.9; color: var(--ak-sub); }
+#includeContent .ak .ak-mv__gift { display: inline-flex; align-items: stretch; margin-top: 20px; border: 2px solid var(--ak-orange); border-radius: 6px; background: #fff; overflow: hidden; }
+#includeContent .ak .ak-mv__gift-label { display: flex; align-items: center; padding: 0 10px; background: var(--ak-orange); color: #fff; font-size: 12px; font-weight: 700; line-height: 1.3; }
+#includeContent .ak .ak-mv__gift-body { padding: 6px 12px; font-size: 13px; font-weight: 700; }
+#includeContent .ak .ak-mv__gift-body strong { color: var(--ak-red); }
+#includeContent .ak .ak-mv__gift-body b { font-size: 1.7em; line-height: 1; }
+#includeContent .ak .ak-mv__cta { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; margin-top: 22px; }
+#includeContent .ak .ak-mv__figure { position: relative; }
+#includeContent .ak .ak-mv__svg { display: block; width: 100%; height: auto; overflow: visible; }
+#includeContent .ak .ak-mv__note { position: relative; z-index: 1; font-size: 10px; color: var(--ak-sub); }
+
+/* 寒さ（左上に舞う雪） */
+#includeContent .ak .ak-mv__cold { position: absolute; left: 0; top: 0; width: 45%; height: 100%; pointer-events: none; }
+#includeContent .ak .ak-mv__cold i { position: absolute; top: -10px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 4px rgba(61, 125, 213, .35); opacity: .9; animation: ak-snow 9s linear infinite; }
+#includeContent .ak .ak-mv__cold i:nth-child(1) { left: 6%; animation-delay: -1s; }
+#includeContent .ak .ak-mv__cold i:nth-child(2) { left: 14%; animation-delay: -5s; width: 4px; height: 4px; }
+#includeContent .ak .ak-mv__cold i:nth-child(3) { left: 22%; animation-delay: -3s; }
+#includeContent .ak .ak-mv__cold i:nth-child(4) { left: 31%; animation-delay: -7s; width: 5px; height: 5px; }
+#includeContent .ak .ak-mv__cold i:nth-child(5) { left: 40%; animation-delay: -2s; width: 4px; height: 4px; }
+#includeContent .ak .ak-mv__cold i:nth-child(6) { left: 50%; animation-delay: -6s; }
+#includeContent .ak .ak-mv__cold i:nth-child(7) { left: 59%; animation-delay: -4s; width: 5px; height: 5px; }
+#includeContent .ak .ak-mv__cold i:nth-child(8) { left: 68%; animation-delay: -8s; width: 4px; height: 4px; }
+#includeContent .ak .ak-mv__cold i:nth-child(9) { left: 77%; animation-delay: -1.5s; }
+#includeContent .ak .ak-mv__cold i:nth-child(10) { left: 85%; animation-delay: -5.5s; width: 4px; height: 4px; }
+#includeContent .ak .ak-mv__cold i:nth-child(11) { left: 10%; animation-delay: -3.5s; width: 3px; height: 3px; }
+#includeContent .ak .ak-mv__cold i:nth-child(12) { left: 45%; animation-delay: -6.5s; width: 3px; height: 3px; }
+@keyframes ak-snow {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(14px, 330px); }
+  100% { transform: translate(-6px, 660px); opacity: 0; }
+}
+
+/* 温度（外は最初から、室内は最後の段で表示） */
+#includeContent .ak .ak-mv__temp { position: absolute; display: flex; align-items: baseline; gap: 4px; padding: 4px 14px; border-radius: 999px; background: #fff; font-size: 14px; font-weight: 700; line-height: 1.4; box-shadow: 0 4px 12px rgba(0,0,0,.08); }
+#includeContent .ak .ak-mv__temp span { font-size: 11px; }
+#includeContent .ak .ak-mv__temp b { font-size: 24px; line-height: 1; }
+#includeContent .ak .ak-mv__temp--out { color: var(--ak-blue); }
+#includeContent .ak .ak-mv__temp--in { color: var(--ak-orange); opacity: 0; transform: scale(.6); transition: opacity .4s, transform .4s cubic-bezier(.3, 1.6, .6, 1); }
+#includeContent .ak .ak-mv.is-warm .ak-mv__temp--in { opacity: 1; transform: scale(1); }
+
+/* イラストの色 */
+#includeContent .ak .ak-mv__svg polygon, #includeContent .ak .ak-mv__svg rect, #includeContent .ak .ak-mv__svg ellipse, #includeContent .ak .ak-mv__svg circle, #includeContent .ak .ak-mv__svg path { stroke: #5a4a42; stroke-width: 1; stroke-linejoin: round; }
+#includeContent .ak .ak-mv__svg .ak-none { fill: none; stroke: none; }
+#includeContent .ak .ak-mv__svg .ak-c-t { fill: #d9d6d2; } #includeContent .ak .ak-mv__svg .ak-c-r { fill: #b9b4ae; } #includeContent .ak .ak-mv__svg .ak-c-l { fill: #c9c4bf; }
+#includeContent .ak .ak-mv__svg .ak-f-t { fill: #e8c79a; } #includeContent .ak .ak-mv__svg .ak-f-r { fill: #c99a62; } #includeContent .ak .ak-mv__svg .ak-f-l { fill: #d8ad78; }
+#includeContent .ak .ak-mv__svg .ak-joint { stroke: rgba(150, 105, 60, .35); stroke-width: 1; }
+#includeContent .ak .ak-mv__svg .ak-w-t { fill: #f2d3a2; } #includeContent .ak .ak-mv__svg .ak-w-r { fill: #d2a46a; } #includeContent .ak .ak-mv__svg .ak-w-l { fill: #e2b981; }
+#includeContent .ak .ak-mv__svg .ak-i, #includeContent .ak .ak-mv__svg .ak-i-t, #includeContent .ak .ak-mv__svg .ak-i-r, #includeContent .ak .ak-mv__svg .ak-i-l { fill: #f7c9a6; }
+#includeContent .ak .ak-mv__svg .ak-i-r { fill: #eeb488; } #includeContent .ak .ak-mv__svg .ak-i-l { fill: #f2bf98; }
+#includeContent .ak .ak-mv__svg .ak-iline { fill: none; stroke: rgba(213, 82, 3, .35); stroke-dasharray: 3 3; }
+#includeContent .ak .ak-mv__svg .ak-ext-t { fill: #fbfaf8; } #includeContent .ak .ak-mv__svg .ak-ext-r { fill: #dcd8d3; } #includeContent .ak .ak-mv__svg .ak-ext-l { fill: #e9e6e2; }
+#includeContent .ak .ak-mv__svg .ak-int-t { fill: #ffffff; } #includeContent .ak .ak-mv__svg .ak-int-r { fill: #efece8; } #includeContent .ak .ak-mv__svg .ak-int-l { fill: #f6f4f1; }
+#includeContent .ak .ak-mv__svg .ak-sash { fill: #ffffff; }
+#includeContent .ak .ak-mv__svg .ak-glass { fill: #cfe3f6; }
+#includeContent .ak .ak-mv__svg .ak-mullion { stroke: #ffffff; stroke-width: 3; fill: none; }
+#includeContent .ak .ak-mv__svg .ak-shine { stroke: rgba(255,255,255,.9); stroke-width: 3; fill: none; stroke-linecap: round; }
+#includeContent .ak .ak-mv__svg .ak-rug-t { fill: #f3e2c9; } #includeContent .ak .ak-mv__svg .ak-rug-r, #includeContent .ak .ak-mv__svg .ak-rug-l { fill: #e3cdae; }
+#includeContent .ak .ak-mv__svg .ak-sofa-t { fill: #a9b98a; } #includeContent .ak .ak-mv__svg .ak-sofa-r { fill: #879a66; } #includeContent .ak .ak-mv__svg .ak-sofa-l { fill: #97aa76; }
+#includeContent .ak .ak-mv__svg .ak-table-t { fill: #fff8ee; } #includeContent .ak .ak-mv__svg .ak-table-r { fill: #c99a62; } #includeContent .ak .ak-mv__svg .ak-table-l { fill: #d8ad78; }
+#includeContent .ak .ak-mv__svg .ak-pot-t { fill: #e7e1d9; } #includeContent .ak .ak-mv__svg .ak-pot-r { fill: #b9b0a6; } #includeContent .ak .ak-mv__svg .ak-pot-l { fill: #cdc5bb; }
+#includeContent .ak .ak-mv__svg .ak-plant ellipse { fill: #8fb06a; }
+#includeContent .ak .ak-mv__svg .ak-cord { stroke: #5a4a42; stroke-width: 1.5; }
+#includeContent .ak .ak-mv__svg .ak-lamp { fill: #fff1c9; }
+#includeContent .ak .ak-mv__svg .ak-glow { fill: rgba(255, 176, 92, .26); stroke: none; }
+#includeContent .ak .ak-mv__svg .ak-person rect, #includeContent .ak .ak-mv__svg .ak-person circle { stroke: #5a4a42; }
+#includeContent .ak .ak-mv__svg .ak-person circle { fill: #ffe0c7; }
+#includeContent .ak .ak-mv__svg .ak-person--a rect { fill: #3d7dd5; }
+#includeContent .ak .ak-mv__svg .ak-person--b rect { fill: #eb6877; }
+#includeContent .ak .ak-mv__svg .ak-person--c rect { fill: #f2b33d; }
+#includeContent .ak .ak-mv__svg .ak-tag__line { stroke: var(--ak-red); stroke-width: 1.2; stroke-dasharray: 3 3; }
+#includeContent .ak .ak-mv__svg .ak-tag__box { fill: #fff; stroke: var(--ak-red); stroke-width: 1.5; }
+#includeContent .ak .ak-mv__svg .ak-tag__num { fill: var(--ak-red); font-family: "Montserrat", sans-serif; font-size: 13px; font-weight: 700; }
+#includeContent .ak .ak-mv__svg .ak-tag__text { fill: var(--ak-ink); font-family: "Noto Sans JP", sans-serif; font-size: 14px; font-weight: 700; }
+
+/* 組み上がる動き（アキュラホーム様と同じ考え方）：
+   上から落ちて（だんだん見えて）、着地で縦に縮んでから伸びて「ぽよん」と弾む。
+   JS が動かない環境では最初から全部見えている（.is-js が付いたときだけ隠す） */
+#includeContent .ak .ak-mv__drop { transform-box: fill-box; transform-origin: 50% 100%; }
+#includeContent .ak .ak-mv.is-js .ak-mv__step { opacity: 0; }
+#includeContent .ak .ak-mv.is-js .ak-mv__step.is-on { opacity: 1; }
+#includeContent .ak .ak-mv.is-js .ak-mv__step.is-on .ak-mv__drop { animation: ak-drop .55s ease-in both; }
+#includeContent .ak .ak-mv.is-js .ak-mv__step--tag.is-on { animation: ak-tag .35s ease-out both; }
+#includeContent .ak .ak-mv.is-out .ak-mv__step { opacity: 0 !important; transition: opacity .6s; }
+@keyframes ak-drop {
+  0% { transform: translateY(-160px) scaleY(1); opacity: 0; }
+  50% { opacity: .85; }
+  78% { transform: translateY(0) scaleY(.9); opacity: 1; }
+  92% { transform: translateY(0) scaleY(1.06); }
+  100% { transform: translateY(0) scaleY(1); opacity: 1; }
+}
+@keyframes ak-tag {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #includeContent .ak .ak-mv.is-js .ak-mv__step { opacity: 1; }
+  #includeContent .ak .ak-mv.is-js .ak-mv__step.is-on .ak-mv__drop, #includeContent .ak .ak-mv__cold i { animation: none; }
+  #includeContent .ak .ak-mv__cold { display: none; }
+  #includeContent .ak .ak-mv__temp--in { opacity: 1; transform: none; }
+}
+
+/* ============ 2. 共感 ============ */
+#includeContent .ak .ak-worry { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#includeContent .ak .ak-worry li { position: relative; padding: 18px 18px 18px 52px; border-radius: 10px; background: #fff; font-size: 15px; line-height: 1.7; }
+#includeContent .ak .ak-worry li::before { content: "?"; position: absolute; left: 16px; top: 18px; width: 24px; height: 24px; border-radius: 50%; background: var(--ak-blue); color: #fff; font-family: "Montserrat", sans-serif; font-size: 14px; font-weight: 700; line-height: 24px; text-align: center; }
+#includeContent .ak .ak-worry b { color: var(--ak-blue); }
+#includeContent .ak .ak-worry__answer { margin-top: 30px; text-align: center !important; font-size: 20px; font-weight: 700; }
+#includeContent .ak .ak-worry__answer span { color: var(--ak-red); background: linear-gradient(transparent 62%, rgba(213, 82, 3, .2) 62%); }
+
+/* ============ 3. アートラボとは ============ */
+#includeContent .ak .ak-about__img img { border-radius: 10px; }
+#includeContent .ak .ak-vs { width: 100%; margin-top: 22px; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+#includeContent .ak .ak-vs th, #includeContent .ak .ak-vs td { padding: 10px 8px; border-bottom: 1px solid var(--ak-line); text-align: center !important; vertical-align: middle; }
+#includeContent .ak .ak-vs thead th { font-size: 13px; color: var(--ak-sub); font-weight: 700; }
+#includeContent .ak .ak-vs thead th.is-lab { color: #fff; background: var(--ak-red); border-radius: 8px 8px 0 0; }
+#includeContent .ak .ak-vs tbody th { width: 26%; font-weight: 700; color: var(--ak-sub); font-size: 13px; }
+#includeContent .ak .ak-vs td.is-lab { background: var(--ak-warm); color: var(--ak-red); font-weight: 700; }
+
+/* ============ 4〜6. 体感ポイント ============ */
+#includeContent .ak .ak-point { margin-top: 28px; padding: 32px; border-radius: 14px; background: #fff; }
+#includeContent .ak .ak-point__head { display: flex; align-items: center; gap: 18px; padding-bottom: 18px; margin-bottom: 22px; border-bottom: 1px solid var(--ak-line); }
+#includeContent .ak .ak-point__num { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 72px; height: 72px; border-radius: 50%; background: var(--ak-red); color: #fff; font-size: 11px; font-weight: 600; line-height: 1; }
+#includeContent .ak .ak-point__num b { margin-top: 4px; font-size: 26px; }
+#includeContent .ak .ak-point--cold .ak-point__num { background: var(--ak-blue); }
+#includeContent .ak .ak-point__title { font-size: 17px; font-weight: 700; line-height: 1.5; }
+#includeContent .ak .ak-point__title span { color: var(--ak-red); font-size: 24px; }
+#includeContent .ak .ak-point--cold .ak-point__title span { color: var(--ak-blue); }
+#includeContent .ak .ak-point__imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+#includeContent .ak .ak-point__imgs img { width: 100%; border-radius: 8px; }
+#includeContent .ak .ak-grades { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 16px; }
+#includeContent .ak .ak-grades li { padding: 10px 4px; border-radius: 8px; background: var(--ak-cold); color: var(--ak-blue); font-size: 13px; font-weight: 700; line-height: 1.4; text-align: center !important; }
+#includeContent .ak .ak-grades li > * { text-align: center !important; }
+#includeContent .ak .ak-grades li span { display: block; font-size: 11px; font-weight: 500; color: var(--ak-sub); }
+#includeContent .ak .ak-grades li small { display: block; margin-top: 2px; font-size: 10px; }
+#includeContent .ak .ak-grades li.is-std { background: var(--ak-orange); color: #fff; }
+#includeContent .ak .ak-grades li.is-std span, #includeContent .ak .ak-grades li.is-std small { color: #fff; }
+#includeContent .ak .ak-point__spec { display: inline-flex; align-items: baseline; gap: 10px; margin-top: 16px; padding: 8px 18px; border-radius: 8px; background: var(--ak-warm); color: var(--ak-red); font-size: 17px; font-weight: 700; }
+#includeContent .ak .ak-point__spec span { color: var(--ak-sub); font-size: 12px; }
+#includeContent .ak .ak-point__spec b { font-size: 30px; line-height: 1; }
+#includeContent .ak .ak-voice { display: flex; align-items: center; gap: 18px; padding: 18px 20px; border-radius: 10px; background: var(--ak-cold); }
+#includeContent .ak .ak-voice img { flex: 0 0 72px; width: 72px; }
+#includeContent .ak .ak-voice p { font-size: 14px; line-height: 1.8; }
+#includeContent .ak .ak-voice p span { display: block; margin-top: 6px; color: var(--ak-sub); font-size: 12px; text-align: right !important; }
+#includeContent .ak .ak-kids { display: flex; align-items: center; gap: 28px; margin-top: 28px; padding: 24px; border-radius: 14px; background: #fff; }
+#includeContent .ak .ak-kids img { border-radius: 10px; }
+#includeContent .ak .ak-kids__label { color: var(--ak-orange); font-size: 13px; font-weight: 700; letter-spacing: .2em; }
+#includeContent .ak .ak-kids__title { margin: 2px 0 8px; font-size: 20px; font-weight: 700; }
+
+/* もっと見る（開閉）。JS が動くときだけ閉じる */
+#includeContent .ak .ak-more { margin-top: 20px; }
+#includeContent .ak .ak-more__btn, #includeContent .ak .ak-more__btn:link, #includeContent .ak .ak-more__btn:visited {
+  position: relative; display: block; padding: 14px 48px 14px 20px; border: 1px solid var(--ak-line); border-radius: 10px; background: #fff;
+  color: var(--ak-ink) !important; font-size: 15px; font-weight: 700; text-decoration: none !important; cursor: pointer;
+}
+#includeContent .ak .ak-more__btn::before, #includeContent .ak .ak-more__btn::after { content: ""; position: absolute; right: 20px; top: 50%; width: 14px; height: 2px; margin-top: -1px; background: var(--ak-red); transition: transform .3s; }
+#includeContent .ak .ak-more__btn::after { transform: rotate(90deg); }
+#includeContent .ak .ak-more.is-open .ak-more__btn::after { transform: rotate(0deg); }
+#includeContent .ak .ak-more__body { padding-top: 14px; }
+#includeContent .ak.is-js .ak-more__body { height: 0; padding-top: 0; overflow: hidden; transition: height .4s ease; }
+#includeContent .ak.is-js .ak-more.is-open .ak-more__body { padding-top: 14px; }
+
+/* ============ 7. イベント ============ */
+#includeContent .ak .ak-event { background: linear-gradient(180deg, #fff 0%, var(--ak-warm) 100%); }
+#includeContent .ak .ak-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 30px; counter-reset: none; }
+#includeContent .ak .ak-flow li { position: relative; padding: 22px 14px 18px; border-radius: 12px; background: #fff; border: 2px solid var(--ak-warm2); text-align: center !important; }
+#includeContent .ak .ak-flow li + li::before { content: ""; position: absolute; left: -12px; top: 50%; width: 0; height: 0; margin-top: -7px; border-left: 9px solid var(--ak-orange); border-top: 7px solid transparent; border-bottom: 7px solid transparent; }
+#includeContent .ak .ak-flow__num { display: block; text-align: center !important; color: var(--ak-orange); font-size: 22px; font-weight: 700; line-height: 1; }
+#includeContent .ak .ak-flow__title { margin: 8px 0 6px; font-size: 16px; font-weight: 700; text-align: center !important; }
+#includeContent .ak .ak-flow li p { font-size: 13px; line-height: 1.6; text-align: center !important; }
+#includeContent .ak .ak-event__info { margin-top: 26px; border-top: 1px solid var(--ak-line); }
+#includeContent .ak .ak-event__info div { display: flex; padding: 14px 6px; border-bottom: 1px solid var(--ak-line); font-size: 15px; }
+#includeContent .ak .ak-event__info dt { flex: 0 0 110px; color: var(--ak-red); font-weight: 700; }
+#includeContent .ak .ak-event__info small { color: var(--ak-sub); font-size: 12px; }
+#includeContent .ak .ak-gift { position: relative; margin-top: 30px; padding: 28px 28px 22px; border: 3px solid var(--ak-orange); border-radius: 14px; background: #fff; text-align: center !important; }
+#includeContent .ak .ak-gift__label { position: absolute; left: 50%; top: -15px; transform: translateX(-50%); padding: 2px 18px; border-radius: 999px; background: var(--ak-orange); color: #fff; font-size: 13px; font-weight: 700; white-space: nowrap; }
+#includeContent .ak .ak-gift__title { font-size: 20px; font-weight: 700; text-align: center !important; }
+#includeContent .ak .ak-gift__title strong { color: var(--ak-red); }
+#includeContent .ak .ak-gift__title b { font-size: 1.9em; line-height: 1; }
+#includeContent .ak .ak-gift__list { display: inline-block; margin-top: 12px; text-align: left !important; font-size: 14px; }
+#includeContent .ak .ak-gift__list li { position: relative; padding-left: 18px; }
+#includeContent .ak .ak-gift__list li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 8px; height: 8px; border-radius: 50%; background: var(--ak-orange); }
+#includeContent .ak .ak-gift__list b { margin-left: 4px; color: var(--ak-red); }
+#includeContent .ak .ak-gift .ak-note { text-align: left !important; }
+
+/* ============ 8. 標準仕様 ============ */
+#includeContent .ak .ak-spec { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 26px; }
+#includeContent .ak .ak-spec li { display: flex; flex-direction: column; align-items: center; padding: 22px 10px; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(184, 28, 34, .08); text-align: center !important; }
+#includeContent .ak .ak-spec span { color: var(--ak-sub); font-size: 12px; font-weight: 700; }
+#includeContent .ak .ak-spec b { margin-top: 4px; color: var(--ak-red); font-size: 18px; line-height: 1.2; }
+#includeContent .ak .ak-spec b em { margin-left: 4px; font-size: 44px; }
+#includeContent .ak .ak-spec small { margin-top: 6px; color: var(--ak-sub); font-size: 12px; }
+
+/* ============ 9. 実績 ============ */
+#includeContent .ak .ak-evidence { margin: 0 auto; }
+#includeContent .ak .ak-trust { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 28px; border-top: 1px solid var(--ak-line); border-bottom: 1px solid var(--ak-line); }
+#includeContent .ak .ak-trust li { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 18px 8px; text-align: center !important; }
+#includeContent .ak .ak-trust li + li { border-left: 1px solid var(--ak-line); }
+#includeContent .ak .ak-trust b { color: var(--ak-red); font-size: 30px; line-height: 1.2; }
+#includeContent .ak .ak-trust b em { font-size: 1em; }
+#includeContent .ak .ak-trust span { margin-top: 4px; font-size: 13px; line-height: 1.6; }
+
+/* ============ 10. 会場マップ ============ */
+#includeContent .ak .ak-map__svg { display: block; width: 100%; height: auto; }
+#includeContent .ak .ak-map__sea { fill: #dcebf5; }
+#includeContent .ak .ak-map__land { fill: #fbf6ef; stroke: #c9bfb2; stroke-width: 6; }
+#includeContent .ak .ak-map__label { fill: #a99c8e; font-family: "Noto Sans JP", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: .2em; text-anchor: middle; }
+#includeContent .ak .ak-map__label--sea, #includeContent .ak .ak-map__label--lake { fill: #8fb0c8; font-size: 24px; }
+#includeContent .ak .ak-map__label--lake { font-size: 18px; letter-spacing: .1em; }
+#includeContent .ak .ak-map__spot { cursor: pointer; outline: none; }
+#includeContent .ak .ak-map__line { stroke: var(--ak-red); stroke-width: 3; stroke-dasharray: 6 5; }
+#includeContent .ak .ak-map__dot { fill: var(--ak-red); stroke: #fff; stroke-width: 4; }
+#includeContent .ak .ak-map__pulse { fill: var(--ak-red); opacity: 0; transform-box: fill-box; transform-origin: center; }
+#includeContent .ak .ak-map__btn { fill: #fff; stroke: var(--ak-red); stroke-width: 4; transition: fill .2s; }
+#includeContent .ak .ak-map__btn-text { fill: var(--ak-red); font-family: "Noto Sans JP", sans-serif; font-size: 30px; font-weight: 700; text-anchor: middle; transition: fill .2s; }
+#includeContent .ak .ak-map__spot:hover .ak-map__btn, #includeContent .ak .ak-map__spot:focus .ak-map__btn, #includeContent .ak .ak-map__spot.is-active .ak-map__btn { fill: var(--ak-red); }
+#includeContent .ak .ak-map__spot:hover .ak-map__btn-text, #includeContent .ak .ak-map__spot:focus .ak-map__btn-text, #includeContent .ak .ak-map__spot.is-active .ak-map__btn-text { fill: #fff; }
+#includeContent .ak .ak-map__spot.is-active .ak-map__pulse { animation: ak-pulse 1.8s ease-out infinite; }
+@keyframes ak-pulse { 0% { opacity: .5; transform: scale(.6); } 100% { opacity: 0; transform: scale(2.2); } }
+#includeContent .ak .ak-map__credit { margin-top: 6px; font-size: 11px; color: var(--ak-sub); text-align: right !important; }
+#includeContent .ak .ak-map__credit a { color: var(--ak-sub); }
+#includeContent .ak .ak-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 16px; }
+#includeContent .ak .ak-tabs__btn, #includeContent .ak .ak-tabs__btn:link, #includeContent .ak .ak-tabs__btn:visited { display: block; padding: 10px 4px; border: 2px solid var(--ak-red); border-radius: 8px; background: #fff; color: var(--ak-red) !important; font-size: 15px; font-weight: 700; text-align: center !important; text-decoration: none !important; }
+#includeContent .ak .ak-tabs__btn.is-active { background: var(--ak-red); color: #fff !important; }
+#includeContent .ak .ak-place { padding: 22px; border-radius: 12px; background: #fff; }
+#includeContent .ak.is-js .ak-place { display: none; }
+#includeContent .ak.is-js .ak-place.is-active { display: block; }
+#includeContent .ak .ak-place + .ak-place { margin-top: 14px; }
+#includeContent .ak.is-js .ak-place + .ak-place { margin-top: 0; }
+#includeContent .ak .ak-place__area { color: var(--ak-sub); font-size: 12px; font-weight: 700; }
+#includeContent .ak .ak-place__name { margin: 2px 0 12px; font-size: 22px; font-weight: 700; line-height: 1.4; }
+#includeContent .ak .ak-place__name span { display: block; color: var(--ak-red); font-size: 13px; }
+#includeContent .ak .ak-place__info div { display: flex; padding: 8px 0; border-top: 1px solid var(--ak-line); font-size: 14px; }
+#includeContent .ak .ak-place__info dt { flex: 0 0 76px; color: var(--ak-sub); font-weight: 700; }
+
+/* ============ 11. FAQ ============ */
+#includeContent .ak .ak-faq li + li { margin-top: 10px; }
+#includeContent .ak .ak-faq .ak-more { margin-top: 0; }
+#includeContent .ak .ak-faq__q, #includeContent .ak .ak-faq__q:link, #includeContent .ak .ak-faq__q:visited { padding-left: 52px; }
+#includeContent .ak .ak-faq li { position: relative; }
+#includeContent .ak .ak-faq li::before { content: "Q"; position: absolute; left: 16px; top: 13px; z-index: 1; width: 26px; height: 26px; border-radius: 50%; background: var(--ak-red); color: #fff; font-family: "Montserrat", sans-serif; font-size: 14px; font-weight: 700; line-height: 26px; text-align: center; pointer-events: none; }
+#includeContent .ak .ak-faq__a { position: relative; padding: 16px 18px 16px 52px; border-radius: 10px; background: var(--ak-warm); font-size: 14px; line-height: 1.85; }
+#includeContent .ak .ak-faq__a::before { content: "A"; position: absolute; left: 16px; top: 16px; width: 26px; height: 26px; border-radius: 50%; background: var(--ak-orange); color: #fff; font-family: "Montserrat", sans-serif; font-size: 14px; font-weight: 700; line-height: 26px; text-align: center; }
+
+/* ============ 12. 締め ============ */
+#includeContent .ak .ak-closing { padding: 72px 0; background: linear-gradient(115deg, var(--ak-cold) 0%, var(--ak-warm) 55%, #fde6cf 100%); }
+#includeContent .ak .ak-closing__title { text-align: center !important; font-size: 28px; font-weight: 900; line-height: 1.5; }
+#includeContent .ak .ak-closing .ak-text { margin-top: 10px; }
+#includeContent .ak .ak-closing__gift { margin-top: 18px; text-align: center !important; font-size: 16px; font-weight: 700; }
+#includeContent .ak .ak-closing__gift strong { color: var(--ak-red); }
+#includeContent .ak .ak-closing__gift b { font-size: 1.8em; line-height: 1; }
+
+/* PC 用（SUUMO の本文幅 950px。中身は 820px） */
+#includeContent .ak .ak-sp { display: none; }
+#includeContent .ak .ak-inr { width: 820px; margin: 0 auto; }
+
+#includeContent .ak .ak-mv { padding: 44px 0 14px; }
+#includeContent .ak .ak-mv__inr { width: 910px; margin: 0 auto; gap: 0; }
+#includeContent .ak .ak-mv__copy { flex: 0 0 330px; padding-left: 10px; }
+#includeContent .ak .ak-mv__title { font-size: 40px; }
+#includeContent .ak .ak-mv__figure { flex: 1; min-width: 0; margin-right: -16px; }
+#includeContent .ak .ak-mv__temp--out { left: 6px; top: 30px; }
+#includeContent .ak .ak-mv__temp--in { right: 120px; top: 230px; }
+#includeContent .ak .ak-mv__note { width: 910px; margin: 6px auto 0; text-align: right !important; }
+
+#includeContent .ak .ak-about { display: flex; gap: 36px; align-items: center; }
+#includeContent .ak .ak-about__img { flex: 0 0 330px; }
+
+#includeContent .ak .ak-point__body { display: grid; grid-template-columns: 360px 1fr; gap: 28px; align-items: start; }
+#includeContent .ak .ak-kids img { flex: 0 0 300px; width: 300px; }
+
+/* 山陰は東西に長いので、PC も地図を横幅いっぱいに置き、その下に会場の情報 */
+#includeContent .ak .ak-map__figure { margin-bottom: 18px; }
+#includeContent .ak .ak-place { display: grid; grid-template-columns: 1fr 300px; column-gap: 28px; align-items: end; }
+#includeContent .ak.is-js .ak-place.is-active { display: grid; }
+#includeContent .ak .ak-place > * { grid-column: 1; }
+#includeContent .ak .ak-place .ak-btn--block { grid-column: 2; grid-row: 1 / span 3; align-self: end; margin-top: 0; }
